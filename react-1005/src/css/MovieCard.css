@@ -1,124 +1,124 @@
+/* Card & Poster Container */
 .movie-card {
   position: relative;
-  border-radius: 8px;
   overflow: hidden;
-  background-color: #1a1a1a;
-  transition: transform 0.2s;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.movie-card:hover {
-  transform: translateY(-5px);
+  border-radius: 8px;
+  background-color: #1e293b;
 }
 
 .movie-poster {
   position: relative;
-  aspect-ratio: 2/3;
   width: 100%;
+  overflow: hidden;
 }
 
 .movie-poster img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
-.movie-overlay {
+.movie-card:hover .movie-poster img {
+  transform: scale(1.05);
+}
+
+/* Slide-Up Overview Overlay */
+.movie-description-overlay {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.8)
-  );
-  opacity: 0;
-  transition: opacity 0.2s;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.92);
+  color: #ffffff;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 1rem;
+  justify-content: center;
+  box-sizing: border-box;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  z-index: 2; /* Sits below favorite button */
 }
 
-.movie-card:hover .movie-overlay {
-  opacity: 1;
+.movie-card:hover .movie-description-overlay {
+  transform: translateY(0);
+}
+
+.movie-description-overlay h4 {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+  color: #38bdf8;
+}
+
+.movie-description-overlay p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #e2e8f0;
+}
+
+/* Meta Bar Below Poster */
+.movie-info {
+  padding: 12px;
+}
+
+.movie-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.movie-rating {
+  font-weight: bold;
+  color: #f5c518;
+}
+
+/* Favorite Button & Overlay Position */
+.movie-overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10; /* Keeps button above description panel */
 }
 
 .favorite-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  color: white;
-  font-size: 1.5rem;
-  padding: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 11;
+  background: rgba(15, 23, 42, 0.75);
+  border: 2px solid #ef4444;
+  color: transparent;
+  -webkit-text-stroke: 1.5px #ef4444;
+  font-size: 1.2rem;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease-in-out;
 }
 
 .favorite-btn:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+  background: rgba(15, 23, 42, 0.95);
 }
 
 .favorite-btn.active {
-  color: #ff4757;
+  background: #ef4444;
+  color: #ef4444;
+  -webkit-text-stroke: 0px;
+  border-color: #ef4444;
 }
 
-.rating-select {
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  border: none;
-  padding: 0.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 0.5rem;
-}
-
-.movie-info {
-  padding: 1rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.movie-info h3 {
-  font-size: 1rem;
-  margin: 0;
-}
-
-.movie-info p {
-  color: #999;
-  font-size: 0.9rem;
-}
-
-.user-rating {
-  color: #ffd700;
-  font-size: 0.9rem;
-  margin-top: auto;
-}
-
-@media (max-width: 768px) {
-  .movie-card {
-    font-size: 0.9rem;
-  }
-
-  .movie-info {
-    padding: 0.75rem;
-  }
-
-  .favorite-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 1.2rem;
-  }
+.favorite-btn:focus,
+.favorite-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
 }

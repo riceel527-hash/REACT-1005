@@ -14,6 +14,14 @@ function NavBar() {
         <Link to="/favorites" className="nav-link">
           Favorites
         </Link>
+
+        {/* Contact Email Link */}
+        <a
+          href="mailto:riceel527@gmail.com.?subject=Inquiry%20from%20Movie%20App"
+          className="nav-link contact-link"
+        >
+          Contact
+        </a>
       </div>
     </nav>
   );
