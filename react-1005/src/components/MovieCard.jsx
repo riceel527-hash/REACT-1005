@@ -36,7 +36,7 @@ function MovieCard({ movie }) {
             ♥
           </button>
         </div>
-        {/* Slide-Up Overview Overlay */}
+        {/* Overlay */}
         <div className="movie-description-overlay">
           <h4>Overview</h4>
           <p>{movie.overview || "No description available."}</p>

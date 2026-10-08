@@ -1,4 +1,3 @@
-/* Card & Poster Container */
 .movie-card {
   position: relative;
   overflow: hidden;
@@ -22,7 +21,7 @@
   transform: scale(1.05);
 }
 
-/* Slide-Up Overview Overlay */
+/* Overlay */
 .movie-description-overlay {
   position: absolute;
   bottom: 0;
@@ -39,7 +38,7 @@
   transform: translateY(100%);
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: auto;
-  z-index: 2; /* Sits below favorite button */
+  z-index: 2;
 }
 
 .movie-card:hover .movie-description-overlay {
@@ -59,7 +58,7 @@
   color: #e2e8f0;
 }
 
-/* Meta Bar Below Poster */
+/* Poster */
 .movie-info {
   padding: 12px;
 }
@@ -78,12 +77,11 @@
   color: #f5c518;
 }
 
-/* Favorite Button & Overlay Position */
 .movie-overlay {
   position: absolute;
   top: 10px;
   right: 10px;
-  z-index: 10; /* Keeps button above description panel */
+  z-index: 10;
 }
 
 .favorite-btn {
